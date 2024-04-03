@@ -20,7 +20,7 @@ function mapStateToProps(state, { targetProps: { windowId } }) {
         canvases: getVisibleCanvases(state, { windowId }),
         config: state.config,
         windowViewType: getWindowViewType(state, { windowId }),
-        Version:'video-wrapper'
+        version:'video-wrapper'
     };
 }
 

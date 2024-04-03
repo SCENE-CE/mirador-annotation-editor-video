@@ -1,6 +1,6 @@
 import Mirador from 'mirador/dist/es/src/index';
 import LocalStorageAdapter from 'mirador-annotations/es/LocalStorageAdapter';
-import MiradorAnnotationEditionVideoPlugin from '../../pluggin/MiradorAnnotationEditionVideoPlugin'
+import MiradorAnnotationEditionVideoPlugin from './plugin/MiradorAnnotationEditionVideoPlugin'
 
 const config = {
   id: 'demo',
