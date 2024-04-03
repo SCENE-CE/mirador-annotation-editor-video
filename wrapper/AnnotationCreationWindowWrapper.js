@@ -13,14 +13,14 @@ function mapStateToProps(state, { targetProps: { windowId } }) {
     const annotationCreationCompanionWindows = getCompanionWindowsForContent(state, { content: 'annotationCreation', windowId });
     let annotationEditCompanionWindowIsOpened = true;
     if (Object.keys(annotationCreationCompanionWindows).length !== 0) {
-        annotationEditCompanionWindowIsOpened = true;
+        annotationEditCompanionWindowIsOpened = false;
     }
     return {
         annotationEditCompanionWindowIsOpened,
         canvases: getVisibleCanvases(state, { windowId }),
         config: state.config,
         windowViewType: getWindowViewType(state, { windowId }),
-        toto:'toto'
+        Version:'video-wrapper'
     };
 }
 
