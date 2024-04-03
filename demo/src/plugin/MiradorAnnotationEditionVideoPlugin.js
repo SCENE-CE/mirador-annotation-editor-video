@@ -3,10 +3,10 @@ import externalStorageAnnotationPlugin from 'mirador-annotations/es/plugins/exte
 import canvasAnnotationsPlugin from 'mirador-annotations/es/plugins/canvasAnnotationsPlugin';
 import annotationCreationCompanionWindow from 'mirador-annotations/es/plugins/annotationCreationCompanionWindow';
 import windowSideBarButtonsPlugin from 'mirador-annotations/es/plugins/windowSideBarButtonsPlugin';
-
+import AnnotationCreationCompanionWindowWrapper from "../wrapper/AnnotationCreationCompanionWindowWrapper";
 export{
     AnnotationCreationWindowWrapper,
-    externalStorageAnnotationPlugin,canvasAnnotationsPlugin,annotationCreationCompanionWindow,
+    externalStorageAnnotationPlugin,canvasAnnotationsPlugin,AnnotationCreationCompanionWindowWrapper,
     windowSideBarButtonsPlugin,
 }
 
@@ -18,6 +18,6 @@ export default [
 },
     externalStorageAnnotationPlugin,
     canvasAnnotationsPlugin,
-    annotationCreationCompanionWindow,
+    AnnotationCreationCompanionWindowWrapper,
     windowSideBarButtonsPlugin,
 ]
