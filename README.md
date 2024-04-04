@@ -12,7 +12,7 @@ MAE plugin to add video annotation support.
 
 #### Licence
 
-Unlike the original [mirador-annotations](https://github.com/ProjectMirador/mirador-annotations/) plugin, this `mirador-annotation-editor` is distributed under the **GPL v3**.
+ `mirador-annotation-editor-video` is distributed under the **GPL v3**.
 
 Please acknowledge that any modification you make must be distributed under a compatible licence and cannot be closed source.
 
