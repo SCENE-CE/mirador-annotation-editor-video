@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { getWindowViewType } from 'mirador/dist/es/src/state/selectors';
 import { getVisibleCanvases } from 'mirador/dist/es/src/state/selectors/canvases';
 import { getCompanionWindowsForContent } from 'mirador/dist/es/src/state/selectors/companionWindows';
-const MiradorAnnotation = require('mirador-annotations/es/plugins/miradorAnnotationPlugin').default;
+const MiradorAnnotation = require('mirador-annotations/src/plugins/miradorAnnotationPlugin').default;
 // TODO use selector in main componenent
 /**
  * this function map the state to the annotationPlugin's props

@@ -5,7 +5,8 @@ import { getVisibleCanvasAudioResources, getVisibleCanvases } from 'mirador/dist
 import { getPresentAnnotationsOnSelectedCanvases } from 'mirador/dist/es/src/state/selectors/annotations';
 import { VideosReferences } from 'mirador/dist/es/src/plugins/VideosReferences';
 import { OSDReferences } from 'mirador/dist/es/src/plugins/OSDReferences';
-import annotationForm from 'mirador-annotations/es/AnnotationForm';
+import annotationForm from 'mirador-annotations/src/AnnotationForm';
+import {playerReferences} from 'mirador-annotations/src/playerReferences'
 /** */
 const mapDispatchToProps = (dispatch, { id, windowId }) => ({
     closeCompanionWindow: () => dispatch(
@@ -24,8 +25,11 @@ function mapStateToProps(state, { id: companionWindowId, windowId }) {
     const cw = getCompanionWindow(state, { companionWindowId, windowId });
     const { annotationid } = cw;
     const canvases = getVisibleCanvases(state, { windowId });
-    const mediaVideo = VideosReferences.get(windowId);
-    const osdref = OSDReferences.get(windowId);
+    playerReferences.setCanvases(state, windowId);
+    playerReferences.setMedia(windowId);
+    playerReferences.setOverlay();
+    console.log(playerReferences.getCanvases());
+    playerReferences.getOverlay();
     let annotation = getPresentAnnotationsOnSelectedCanvases(state, { windowId })
         .flatMap((annoPage) => annoPage.json.items || [])
         .find((annot) => annot.id === annotationid);
@@ -45,10 +49,7 @@ function mapStateToProps(state, { id: companionWindowId, windowId }) {
         canvases,
         config: state.config,
         currentTime,
-        mediaVideo,
-        osdref,
         getMediaAudio: getVisibleCanvasAudioResources(state, { windowId }),
-        paused: getWindowPausedStatus(state, { windowId }),
         getVisibleCanvase: getVisibleCanvases(state, { windowId }),
         version:'Video-Wrapper',
     };
