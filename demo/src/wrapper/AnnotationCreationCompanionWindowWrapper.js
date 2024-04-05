@@ -1,12 +1,12 @@
 import * as actions from 'mirador/dist/es/src/state/actions';
 import { getCompanionWindow } from 'mirador/dist/es/src/state/selectors/companionWindows';
-import { getWindowCurrentTime, getWindowPausedStatus } from 'mirador/dist/es/src/state/selectors/window';
 import { getVisibleCanvasAudioResources, getVisibleCanvases } from 'mirador/dist/es/src/state/selectors/canvases';
 import { getPresentAnnotationsOnSelectedCanvases } from 'mirador/dist/es/src/state/selectors/annotations';
-import { VideosReferences } from 'mirador/dist/es/src/plugins/VideosReferences';
-import { OSDReferences } from 'mirador/dist/es/src/plugins/OSDReferences';
 import annotationForm from 'mirador-annotations/src/AnnotationForm';
-import {playerReferences} from 'mirador-annotations/src/playerReferences'
+import { playerReferences } from 'mirador-annotations/src/playerReferences';
+import { OSDReferences } from 'mirador/dist/es/src/plugins/OSDReferences';
+import {VideosReferences} from "mirador/dist/es/src/plugins/VideosReferences";
+
 /** */
 const mapDispatchToProps = (dispatch, { id, windowId }) => ({
     closeCompanionWindow: () => dispatch(
@@ -15,21 +15,24 @@ const mapDispatchToProps = (dispatch, { id, windowId }) => ({
     receiveAnnotation: (targetId, annoId, annotation) => dispatch(
         actions.receiveAnnotation(targetId, annoId, annotation),
     ),
-    setCurrentTime: (...args) => dispatch(actions.setWindowCurrentTime(windowId, ...args)),
-    setSeekTo: (...args) => dispatch(actions.setWindowSeekTo(windowId, ...args)),
+    // setCurrentTime: (...args) => dispatch(actions.setWindowCurrentTime(windowId, ...args)),
+    // setSeekTo: (...args) => dispatch(actions.setWindowSeekTo(windowId, ...args)),
 });
 
 /** */
 function mapStateToProps(state, { id: companionWindowId, windowId }) {
-    const currentTime = getWindowCurrentTime(state, { windowId });
+    const currentTime = null;
     const cw = getCompanionWindow(state, { companionWindowId, windowId });
     const { annotationid } = cw;
     const canvases = getVisibleCanvases(state, { windowId });
-    playerReferences.setCanvases(state, windowId);
-    playerReferences.setMedia(windowId);
-    playerReferences.setOverlay();
-    console.log(playerReferences.getCanvases());
-    playerReferences.getOverlay();
+    if(canvases[0].__jsonld.items){
+        playerReferences.init(state, windowId,VideosReferences, actions);
+    }else{
+    playerReferences.init(state, windowId,OSDReferences, actions);
+    }
+    console.log('overlay :',playerReferences.getOverlay())
+    console.log('mediaType :', playerReferences.getMediaType())
+    // This could be removed but it's serve the useEffect in AnnotationForm for now.
     let annotation = getPresentAnnotationsOnSelectedCanvases(state, { windowId })
         .flatMap((annoPage) => annoPage.json.items || [])
         .find((annot) => annot.id === annotationid);
@@ -45,13 +48,11 @@ function mapStateToProps(state, { id: companionWindowId, windowId }) {
     }
 
     return {
+        currentTime,
         annotation,
         canvases,
         config: state.config,
-        currentTime,
         getMediaAudio: getVisibleCanvasAudioResources(state, { windowId }),
-        getVisibleCanvase: getVisibleCanvases(state, { windowId }),
-        version:'Video-Wrapper',
     };
 }
 
