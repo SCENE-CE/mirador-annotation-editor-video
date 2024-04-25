@@ -2,7 +2,7 @@ import * as actions from 'mirador/dist/es/src/state/actions';
 import { getCompanionWindow } from 'mirador/dist/es/src/state/selectors/companionWindows';
 import { getVisibleCanvasAudioResources, getVisibleCanvases } from 'mirador/dist/es/src/state/selectors/canvases';
 import { getPresentAnnotationsOnSelectedCanvases } from 'mirador/dist/es/src/state/selectors/annotations';
-import annotationForm from 'mirador-annotations/src/AnnotationForm';
+import annotationForm from 'mirador-annotations/src/annotationForm/AnnotationForm';
 import { playerReferences } from 'mirador-annotations/src/playerReferences';
 import { OSDReferences } from 'mirador/dist/es/src/plugins/OSDReferences';
 import {VideosReferences} from "mirador/dist/es/src/plugins/VideosReferences";
