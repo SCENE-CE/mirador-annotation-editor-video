@@ -60,8 +60,8 @@ MUI 5.
 You need to use our custom Mirador 4 version. https://github.com/SCENE-CE/mirador-video
 
 ```js
-"mirador": "npm:mirador-video@^1.0.2",
-"mirador-annotations": "npm:mirador-annotation-editor-video@^1.0.3",
+"mirador": "npm:mirador-video@^1.0.6",
+"mirador-annotations": "npm:mirador-annotation-editor-video@^0.0.5",
 ```
 
 You can find an example of integration in our Mirador-integration repository :
