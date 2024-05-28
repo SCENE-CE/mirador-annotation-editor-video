@@ -85,7 +85,7 @@ module.exports = (env, options) => {
     },
     devServer: {
       hot: true,
-      port: 4444,
+      port: 4445,
       static: [
         './demo/dist/',
       ],
