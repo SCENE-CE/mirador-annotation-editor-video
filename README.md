@@ -79,6 +79,12 @@ nvm use
 npm install
 ```
 
+If you encounter dependency issues, you can try to install with legacy peer dependencies :
+
+```
+npm install --legacy-peer-deps
+```
+
 Run a demo with Mirador and the MAEV plugin :
 
 ```
