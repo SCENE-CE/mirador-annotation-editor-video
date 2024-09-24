@@ -61,7 +61,7 @@ You need to use our custom Mirador 4 version. https://github.com/SCENE-CE/mirado
 
 ```js
 "mirador": "npm:mirador-video@^1.0.6",
-"mirador-annotations": "npm:mirador-annotation-editor-video@^0.0.5",
+"mirador-annotations": "npm:mirador-annotation-editor-video@^0.0.7",
 ```
 
 You can find an example of integration in our Mirador-integration repository :
@@ -90,7 +90,10 @@ Run a demo with Mirador and the MAEV plugin :
 ```
 npm start
 ```
+## Full working Mirador environnement
 
+We develop a Mirador Multi User (MMU) environnement : [https://github.com/SCENE-CE/mirador-multi-user](https://github.com/SCENE-CE/mirador-multi-user).
+MMU come out of the box with our custom [Mirador Video](https://github.com/SCENE-CE/mirador-video) (Mirador 4 with custom code) and the MAEV plugin. 
 
 ## Persisting Annotations
 Persisting annotations requires implementing a IIIF annotation server. Several 
