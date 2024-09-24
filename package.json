@@ -23,12 +23,10 @@
   },
   "dependencies": {
     "mirador": "npm:mirador-video@^1.0.6",
-    "mirador-annotations": "npm:mirador-annotation-editor@^1.0.22-mirador-video-based"
+    "mirador-annotations": "npm:mirador-annotation-editor@^1.0.27"
   },
   "peerDependencies": {
     "lodash": "^4.17.11",
-    "mirador": "npm:mirador-video@^1.0.6",
-    "mirador-annotations": "npm:mirador-annotation-editor@^1.0.22-mirador-video-based",
     "react": "^18.2.0",
     "react-dom": "^18.0.0"
   },
@@ -50,6 +48,11 @@
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.2",
     "webpack-plugin": "^1.0.5"
+  },
+  "overrides" : {
+    "mirador-annotations": {
+      "mirador": "npm:mirador-video@^1.0.6"
+    }
   },
   "author": "",
   "homepage": "",
