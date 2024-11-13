@@ -1,6 +1,6 @@
 {
   "name": "mirador-annotation-editor-video",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "Mirador 4 plugin wrapping Mirador Annotation Editor plugin and adding video annotation support",
   "main": "es/index.js",
   "module": "es/index.js",
@@ -22,8 +22,8 @@
     "test:ci": "jest --ci --reporters=default --reporters=jest-junit --watchAll=false"
   },
   "dependencies": {
-    "mirador": "npm:mirador-video@^1.0.6",
-    "mirador-annotations": "npm:mirador-annotation-editor@^1.0.27"
+    "mirador": "npm:mirador-video@^1.0.7",
+    "mirador-annotations": "npm:mirador-annotation-editor@^1.0.31"
   },
   "peerDependencies": {
     "lodash": "^4.17.11",
@@ -31,13 +31,15 @@
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.6",
+    "@babel/cli": "^7.25.9",
+    "@babel/core": "^7.26.0",
+    "@babel/node": "^7.26.0",
     "@babel/plugin-proposal-private-methods": "^7.18.6",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@babel/preset-env": "^7.24.6",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.26.0",
     "@babel/preset-react": "^7.24.6",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.13",
-    "babel-cli": "^6.26.0",
     "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.0",
     "react": "^18.2.0",
@@ -49,9 +51,9 @@
     "webpack-dev-server": "^4.15.2",
     "webpack-plugin": "^1.0.5"
   },
-  "overrides" : {
+  "overrides": {
     "mirador-annotations": {
-      "mirador": "npm:mirador-video@^1.0.6"
+      "mirador": "npm:mirador-video@^1.0.7"
     }
   },
   "author": "",
