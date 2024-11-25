@@ -1,6 +1,6 @@
 {
   "name": "mirador-annotation-editor-video",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Mirador 4 plugin wrapping Mirador Annotation Editor plugin and adding video annotation support",
   "main": "es/index.js",
   "module": "es/index.js",
@@ -22,8 +22,9 @@
     "test:ci": "jest --ci --reporters=default --reporters=jest-junit --watchAll=false"
   },
   "dependencies": {
-    "mirador": "npm:mirador-video@1.0.8",
-    "mirador-annotations": "npm:mirador-annotation-editor@1.0.34"
+    "@mui/icons-material": "^6.1.8",
+    "mirador": "npm:mirador-video@1.0.9",
+    "mirador-annotations": "npm:mirador-annotation-editor@1.0.35"
   },
   "peerDependencies": {
     "lodash": "^4.17.11",
@@ -53,7 +54,7 @@
   },
   "overrides": {
     "mirador-annotations": {
-      "mirador": "npm:mirador-video@^1.0.7"
+      "mirador": "npm:mirador-video@^1.0.9"
     }
   },
   "author": "",
