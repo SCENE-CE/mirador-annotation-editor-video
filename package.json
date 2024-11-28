@@ -1,6 +1,6 @@
 {
   "name": "mirador-annotation-editor-video",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Mirador 4 plugin wrapping Mirador Annotation Editor plugin and adding video annotation support",
   "main": "es/index.js",
   "module": "es/index.js",
