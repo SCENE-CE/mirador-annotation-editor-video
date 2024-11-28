@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@mui/icons-material": "^6.1.8",
-    "mirador": "npm:mirador-video@1.0.9",
+    "mirador": "npm:mirador-video@1.0.10",
     "mirador-annotations": "npm:mirador-annotation-editor@1.0.35"
   },
   "peerDependencies": {
@@ -54,7 +54,7 @@
   },
   "overrides": {
     "mirador-annotations": {
-      "mirador": "npm:mirador-video@^1.0.9"
+      "mirador": "npm:mirador-video@^1.0.10"
     }
   },
   "author": "",
