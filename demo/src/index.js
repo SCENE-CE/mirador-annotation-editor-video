@@ -26,6 +26,7 @@ const config = {
         // adapter: (canvasId) => new AnnototAdapter(canvasId, endpointUrl),
         exportLocalStorageAnnotations: false, // display annotation JSON export button
     },
+    debug: true,
 };
 
 Mirador.viewer(config, [
