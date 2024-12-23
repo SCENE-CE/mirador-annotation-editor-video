@@ -30,8 +30,6 @@ function mapStateToProps(state, { id: companionWindowId, windowId }) {
     }else{
     playerReferences.init(state, windowId,OSDReferences, actions);
     }
-    console.log('overlay :',playerReferences.getOverlay())
-    console.log('mediaType :', playerReferences.getMediaType())
     // This could be removed but it's serve the useEffect in AnnotationForm for now.
     let annotation = getPresentAnnotationsOnSelectedCanvases(state, { windowId })
         .flatMap((annoPage) => annoPage.json.items || [])
