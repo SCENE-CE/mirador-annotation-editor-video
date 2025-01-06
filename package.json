@@ -24,7 +24,7 @@
   "dependencies": {
     "@mui/icons-material": "^5.11.16",
     "mirador": "npm:mirador-video@1.0.14",
-    "mirador-annotations": "npm:mirador-annotation-editor@1.0.64"
+    "mirador-annotations": "npm:mirador-annotation-editor@1.0.65"
   },
   "peerDependencies": {
     "lodash": "^4.17.11",

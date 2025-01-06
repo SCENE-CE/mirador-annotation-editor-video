@@ -13,6 +13,7 @@ const config = {
         {manifestId: "https://files.tetras-libre.fr/dev/youtube_withannot.json"},
         {manifestId: "https://files.tetras-libre.fr/dev/peertube.json"},
         {manifestId: "https://files.tetras-libre.fr/dev/cats_simplify_video_with_annot.json"},
+        { manifestId: "https://files.tetras-libre.fr/dev/sun-400x400.json"}
     ],
     theme: {
         palette: {
