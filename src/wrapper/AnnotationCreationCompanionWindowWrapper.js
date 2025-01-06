@@ -10,6 +10,8 @@ import annotationForm from 'mirador-annotations/src/annotationForm/AnnotationFor
 import { playerReferences } from 'mirador-annotations/src/playerReferences';
 import { OSDReferences } from 'mirador/dist/es/src/plugins/OSDReferences';
 import {VideosReferences} from "mirador/dist/es/src/plugins/VideosReferences";
+import { withTranslation } from 'react-i18next';
+import translations from '../locales';
 
 /** */
 const mapDispatchToProps = (dispatch, { id, windowId }) => ({
@@ -58,14 +60,17 @@ function mapStateToProps(state, { id: companionWindowId, windowId }) {
         currentTime,
         annotation,
         canvases,
-        config: state.config,
+        config: {...state.config, translations},
         getMediaAudio: getVisibleCanvasAudioResources(state, { windowId }),
     };
 }
 
+const AnnotationFormWithTranslation = withTranslation()(annotationForm);
+
+
 export default {
     companionWindowKey: 'annotationCreation',
-    component: annotationForm,
+    component: AnnotationFormWithTranslation,
     mapDispatchToProps,
     mapStateToProps,
 };
