@@ -4,6 +4,7 @@ import { getWindowViewType } from 'mirador/dist/es/src/state/selectors';
 import { getVisibleCanvases } from 'mirador/dist/es/src/state/selectors/canvases';
 import { getCompanionWindowsForContent } from 'mirador/dist/es/src/state/selectors/companionWindows';
 import { getWindowCurrentTime } from "mirador/dist/es/src/state/selectors/window";
+import {withTranslation} from "react-i18next";
 const MiradorAnnotation = require('mirador-annotations/src/plugins/miradorAnnotationPlugin').default;
 // TODO use selector in main componenent
 /**
@@ -28,6 +29,7 @@ function mapStateToProps(state, { targetProps: { windowId } }) {
 
 const enhance = compose(
     connect(mapStateToProps),
+    withTranslation(),
 );
 
 export default enhance(MiradorAnnotation);
