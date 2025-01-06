@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getWindowViewType } from 'mirador/dist/es/src/state/selectors';
 import { getVisibleCanvases } from 'mirador/dist/es/src/state/selectors/canvases';
 import { getCompanionWindowsForContent } from 'mirador/dist/es/src/state/selectors/companionWindows';
+import { getWindowCurrentTime } from "mirador/dist/es/src/state/selectors/window";
 const MiradorAnnotation = require('mirador-annotations/src/plugins/miradorAnnotationPlugin').default;
 // TODO use selector in main componenent
 /**
@@ -15,11 +16,13 @@ function mapStateToProps(state, { targetProps: { windowId } }) {
     if (Object.keys(annotationCreationCompanionWindows).length !== 0) {
         annotationEditCompanionWindowIsOpened = false;
     }
+    let currrentTime = getWindowCurrentTime(state, { windowId })
     return {
         annotationEditCompanionWindowIsOpened,
         canvases: getVisibleCanvases(state, { windowId }),
         config: state.config,
         windowViewType: getWindowViewType(state, { windowId }),
+        currentTime: currrentTime,
     };
 }
 
