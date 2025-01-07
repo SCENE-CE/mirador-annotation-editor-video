@@ -35,10 +35,9 @@ function mapStateToProps(state, { id: companionWindowId, windowId }) {
     const videoResources = getVisibleCanvasVideoResources(state, { windowId });
     // TODO add check on audioResources  getVisibleCanvasAudioResources
 
-    if(videoResources){
+    if(videoResources && videoResources.length > 0){
         playerReferences.init(state, windowId,VideosReferences, actions);
     }else{
-
         playerReferences.init(state, windowId,OSDReferences, actions);
     }
     // This could be removed but it's serve the useEffect in AnnotationForm for now.
