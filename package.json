@@ -24,7 +24,7 @@
   "dependencies": {
     "@mui/icons-material": "^5.11.16",
     "mirador": "npm:mirador-video@1.0.14",
-    "mirador-annotations": "npm:mirador-annotation-editor@1.0.66",
+    "mirador-annotations": "npm:mirador-annotation-editor@1.0.68",
     "react-i18next": "^15.4.0"
   },
   "peerDependencies": {
