@@ -1,15 +1,12 @@
 import * as actions from 'mirador/dist/es/src/state/actions';
 import { getCompanionWindow } from 'mirador/dist/es/src/state/selectors/companionWindows';
 import {
-    getVisibleCanvasAudioResources,
     getVisibleCanvases,
-    getVisibleCanvasVideoResources
 } from 'mirador/dist/es/src/state/selectors/canvases';
 import { getPresentAnnotationsOnSelectedCanvases } from 'mirador/dist/es/src/state/selectors/annotations';
 import annotationForm from 'mirador-annotations/src/annotationForm/AnnotationForm';
 import { checkMediaType } from 'mirador-annotations/src/playerReferences'
 import { MEDIA_TYPES} from "mirador-annotations/es/annotationForm/AnnotationFormUtils";
-import { playerReferences } from 'mirador-annotations/src/playerReferences';
 import { OSDReferences } from 'mirador/dist/es/src/plugins/OSDReferences';
 import {VideosReferences} from "mirador/dist/es/src/plugins/VideosReferences";
 import { withTranslation } from 'react-i18next';
@@ -37,7 +34,7 @@ function mapStateToProps(state, { id: companionWindowId, windowId }) {
 
     const mediaTypes = checkMediaType(state, windowId);
 
-    let playerReferences = undefined;
+    let playerReferences;
 
      if(mediaTypes === MEDIA_TYPES.IMAGE) {
         playerReferences = new WindowPlayer(state, windowId,OSDReferences.get(windowId), actions);
