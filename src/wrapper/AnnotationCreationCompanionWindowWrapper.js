@@ -42,7 +42,7 @@ function mapStateToProps(state, { id: companionWindowId, windowId }) {
      if(mediaTypes === MEDIA_TYPES.IMAGE) {
         playerReferences = new WindowPlayer(state, windowId,OSDReferences.get(windowId), actions);
      }
-    if(mediaTypes === MEDIA_TYPES.VIDEO) {
+    if(mediaTypes === MEDIA_TYPES.VIDEO || mediaTypes === MEDIA_TYPES.AUDIO) {
         playerReferences = new WindowPlayer(state, windowId,VideosReferences.get(windowId), actions);
      }
 
