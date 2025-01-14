@@ -7,11 +7,14 @@ import {
 } from 'mirador/dist/es/src/state/selectors/canvases';
 import { getPresentAnnotationsOnSelectedCanvases } from 'mirador/dist/es/src/state/selectors/annotations';
 import annotationForm from 'mirador-annotations/src/annotationForm/AnnotationForm';
+import { checkMediaType } from 'mirador-annotations/src/playerReferences'
+import { MEDIA_TYPES} from "mirador-annotations/es/annotationForm/AnnotationFormUtils";
 import { playerReferences } from 'mirador-annotations/src/playerReferences';
 import { OSDReferences } from 'mirador/dist/es/src/plugins/OSDReferences';
 import {VideosReferences} from "mirador/dist/es/src/plugins/VideosReferences";
 import { withTranslation } from 'react-i18next';
 import translations from '../locales';
+import {WindowPlayer} from "mirador-annotations/es/playerReferences";
 
 /** */
 const mapDispatchToProps = (dispatch, { id, windowId }) => ({
@@ -32,14 +35,17 @@ function mapStateToProps(state, { id: companionWindowId, windowId }) {
     const { annotationid } = cw;
     const canvases = getVisibleCanvases(state, { windowId });
 
-    const videoResources = getVisibleCanvasVideoResources(state, { windowId });
-    // TODO add check on audioResources  getVisibleCanvasAudioResources
+    const mediaTypes = checkMediaType(state, windowId);
 
-    if(videoResources && videoResources.length > 0){
-        playerReferences.init(state, windowId,VideosReferences, actions);
-    }else{
-        playerReferences.init(state, windowId,OSDReferences, actions);
-    }
+    let playerReferences = undefined;
+
+     if(mediaTypes === MEDIA_TYPES.IMAGE) {
+        playerReferences = new WindowPlayer(state, windowId,OSDReferences.get(windowId), actions);
+     }
+    if(mediaTypes === MEDIA_TYPES.VIDEO || mediaTypes === MEDIA_TYPES.AUDIO) {
+        playerReferences = new WindowPlayer(state, windowId,VideosReferences.get(windowId), actions);
+     }
+
     // This could be removed but it's serve the useEffect in AnnotationForm for now.
     let annotation = getPresentAnnotationsOnSelectedCanvases(state, { windowId })
         .flatMap((annoPage) => annoPage.json.items || [])
@@ -56,11 +62,11 @@ function mapStateToProps(state, { id: companionWindowId, windowId }) {
     }
 
     return {
-        currentTime,
         annotation,
         canvases,
         config: {...state.config, translations},
-        getMediaAudio: getVisibleCanvasAudioResources(state, { windowId }),
+        currentTime,
+        playerReferences,
     };
 }
 
